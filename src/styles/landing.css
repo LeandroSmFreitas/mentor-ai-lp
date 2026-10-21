@@ -1,6 +1,10 @@
 body{margin:0;background:#FFFFFF}
 .wrap{width:100%;max-width:1200px;margin:0 auto;padding:0 32px}
 .lp-links{display:flex;gap:32px}
+.lp-burger,.lp-menu{display:none}
+.lp-menu{position:absolute;top:100%;left:0;right:0;flex-direction:column;padding:8px 16px 16px;background:#FFFFFF;border-bottom:1px solid #F0F0F2;box-shadow:0 16px 32px -16px rgb(24 24 27 / .18)}
+.lp-menu a{padding:14px 4px;font-size:16px;font-weight:500;color:#18181B;border-bottom:1px solid #F0F0F2}
+.lp-menu a:last-child{border-bottom:0}
 .lp-nav a.link{color:#3F3F46;font-size:14px;font-weight:500}
 .lp-nav a.link:hover{color:#18181B}
 .eyebrow{display:inline-flex;align-items:center;gap:8px;height:30px;padding:0 12px 0 6px;border-radius:99px;border:1px solid #E4E4E7;background:#FFFFFF;font-size:13px;color:#3F3F46;box-shadow:0 1px 2px rgb(24 24 27 / .04)}
@@ -40,6 +44,10 @@ details p{padding:0 0 22px;color:#3F3F46;max-width:720px;line-height:1.65}
   .feat-vis{padding:20px}
   .lp-links{display:none}
   .lp-login{display:none}
+  .lp-burger{display:inline-flex}
+  .lp-bar{gap:12px !important}
+  .lp-bar .actions{flex-wrap:nowrap}
+  .lp-menu{display:flex}
   .app-side{display:none !important}
   .app-body{min-height:0 !important;padding:6px !important}
   .app-sheet{padding:20px 16px !important}
