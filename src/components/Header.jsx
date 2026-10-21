@@ -15,13 +15,13 @@ export default function Header() {
           <Mark icon={14} strokeWidth={2.6} />
           Mentor
         </a>
-        <nav className="lp-links" aria-label="Seções" style={{ display: 'flex', gap: 32 }}>
+        <nav className="lp-links" aria-label="Seções">
           {links.map(([href, label]) => (
             <a key={href} className="link" href={href}>{label}</a>
           ))}
         </nav>
         <div className="actions">
-          <a className="btn btn-ghost" href="#">Entrar</a>
+          <a className="btn btn-ghost lp-login" href="#">Entrar</a>
           <a className="btn btn-primary" href="#demo">Agendar demonstração</a>
         </div>
       </div>

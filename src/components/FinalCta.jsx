@@ -2,7 +2,7 @@ export default function FinalCta() {
   return (
     <section id="demo">
       <div className="wrap" style={{ paddingBottom: 96 }}>
-        <div style={{ borderRadius: 28, background: '#111114', color: '#FFFFFF', padding: '88px 40px', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', gap: 28 }}>
+        <div className="final-cta" style={{ borderRadius: 28, background: '#111114', color: '#FFFFFF', padding: '88px 40px', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', gap: 28 }}>
           <h2 className="display" style={{ fontSize: 'clamp(36px, 4.6vw, 64px)', color: '#FFFFFF', maxWidth: 820 }}>
             Dê a cada pessoa nova um mentor desde o primeiro dia.
           </h2>

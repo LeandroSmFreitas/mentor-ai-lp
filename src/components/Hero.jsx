@@ -22,8 +22,8 @@ function AppPreview() {
       <div style={{ display: 'flex', alignItems: 'center', gap: 7, height: 40, padding: '0 16px', borderBottom: '1px solid #E4E4E7', background: '#FAFAFA' }}>
         <span style={dot} /><span style={dot} /><span style={dot} />
       </div>
-      <div style={{ display: 'flex', gap: 8, padding: 8, minHeight: 460 }}>
-        <div aria-hidden="true" style={{ flex: '0 0 200px', padding: '10px 8px', display: 'flex', flexDirection: 'column', gap: 4, textAlign: 'left' }}>
+      <div className="app-body" style={{ display: 'flex', gap: 8, padding: 8, minHeight: 460 }}>
+        <div className="app-side" aria-hidden="true" style={{ flex: '0 0 200px', padding: '10px 8px', display: 'flex', flexDirection: 'column', gap: 4, textAlign: 'left' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '4px 6px 14px', fontWeight: 600, fontSize: 13 }}>
             <Mark box={20} icon={11} style={{ borderRadius: 6 }} />Acme
           </div>
@@ -33,7 +33,7 @@ function AppPreview() {
           <span className="nav" style={{ height: 28, fontSize: 12, fontWeight: 400 }}>Acesso à AWS</span>
           <span className="nav" style={{ height: 28, fontSize: 12, fontWeight: 400 }}>Testes de integração</span>
         </div>
-        <div className="sheet" aria-hidden="true" style={{ flex: 1, padding: '32px 36px', textAlign: 'left', gap: 22 }}>
+        <div className="sheet app-sheet" aria-hidden="true" style={{ flex: 1, padding: '32px 36px', textAlign: 'left', gap: 22 }}>
           <div>
             <div className="xs muted">Quarta-feira, 21 de outubro</div>
             <div className="serif" style={{ fontSize: 34, lineHeight: 1.1, marginTop: 6 }}>Bom dia, Lucas.</div>

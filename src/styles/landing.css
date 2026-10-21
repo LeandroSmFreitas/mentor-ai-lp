@@ -1,5 +1,6 @@
 body{margin:0;background:#FFFFFF}
 .wrap{width:100%;max-width:1200px;margin:0 auto;padding:0 32px}
+.lp-links{display:flex;gap:32px}
 .lp-nav a.link{color:#3F3F46;font-size:14px;font-weight:500}
 .lp-nav a.link:hover{color:#18181B}
 .eyebrow{display:inline-flex;align-items:center;gap:8px;height:30px;padding:0 12px 0 6px;border-radius:99px;border:1px solid #E4E4E7;background:#FFFFFF;font-size:13px;color:#3F3F46;box-shadow:0 1px 2px rgb(24 24 27 / .04)}
@@ -38,4 +39,13 @@ details p{padding:0 0 22px;color:#3F3F46;max-width:720px;line-height:1.65}
   .lead{font-size:17px}
   .feat-vis{padding:20px}
   .lp-links{display:none}
+  .lp-login{display:none}
+  .app-side{display:none !important}
+  .app-body{min-height:0 !important;padding:6px !important}
+  .app-sheet{padding:20px 16px !important}
+  .final-cta{padding:56px 20px !important}
+  section:not(#demo) > .wrap{padding-top:64px !important;padding-bottom:64px !important}
+  #demo > .wrap{padding-bottom:64px !important}
+  .features-wrap{gap:72px !important}
+  .step-n{font-size:44px}
 }

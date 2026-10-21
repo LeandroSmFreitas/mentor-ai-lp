@@ -89,7 +89,7 @@ function KnowledgeLoop() {
 export default function Features() {
   return (
     <section>
-      <div className="wrap" style={{ display: 'flex', flexDirection: 'column', gap: 120, paddingTop: 120, paddingBottom: 120 }}>
+      <div className="wrap features-wrap" style={{ display: 'flex', flexDirection: 'column', gap: 120, paddingTop: 120, paddingBottom: 120 }}>
         <Feature
           kicker="Respostas com fonte"
           title="Pergunte como perguntaria a um colega."
