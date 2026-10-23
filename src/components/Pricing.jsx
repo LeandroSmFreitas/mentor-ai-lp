@@ -1,62 +1,97 @@
-import { Check, Shield } from './icons.jsx'
+import { Check } from './icons.jsx'
+import { track } from '../lib/analytics.js'
 
-function Ticks({ items }) {
-  return (
-    <ul className="ticks small">
-      {items.map((t) => <li key={t}><Check size={15} />{t}</li>)}
-    </ul>
-  )
-}
+// ATENÇÃO: defina com o seu sócio o que realmente pertence a cada plano
+// (limites de colaboradores, de processos seletivos, acesso à IA) antes de publicar.
+const plans = [
+  {
+    id: 'start',
+    name: 'Start',
+    price: 'R$ 190',
+    period: 'por mês',
+    audience: 'Para empresas que querem começar a organizar contratação, integração e treinamento.',
+    items: [
+      'Triagem de candidatos por requisitos da vaga',
+      'Trilhas de treinamento para novos colaboradores',
+      'Acesso individual para cada colaborador',
+      'Acompanhamento do progresso',
+    ],
+    cta: 'Conhecer o Start',
+  },
+  {
+    id: 'pro',
+    name: 'Pro',
+    price: 'R$ 290',
+    period: 'por mês',
+    audience: 'Para empresas que precisam de uma solução mais completa para seleção, treinamento e acompanhamento.',
+    highlight: true,
+    items: [
+      'Tudo do Start',
+      'Assistente de IA para dúvidas internas',
+      'Maior capacidade de colaboradores e processos seletivos',
+      'Mais recursos de acompanhamento',
+    ],
+    cta: 'Conhecer o Pro',
+  },
+  {
+    id: 'enterprise',
+    name: 'Enterprise',
+    price: 'Sob consulta',
+    audience: 'Para empresas com necessidades específicas ou que desejam uma configuração mais ampla.',
+    items: [
+      'Tudo do Pro',
+      'Configuração conforme a estrutura da empresa',
+      'Atendimento personalizado',
+    ],
+    cta: 'Falar com a equipe comercial',
+  },
+]
 
-export default function Pricing() {
+export default function Pricing({ onSelectPlan }) {
   return (
     <section id="precos" style={{ background: '#FAFAFA', borderTop: '1px solid #F0F0F2', borderBottom: '1px solid #F0F0F2' }}>
       <div className="wrap" style={{ display: 'flex', flexDirection: 'column', gap: 48, paddingTop: 112, paddingBottom: 112 }}>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 14, alignItems: 'center', textAlign: 'center' }}>
-          <span className="kicker">Preços</span>
-          <h2 className="h2">Um preço simples. Sem surpresa.</h2>
-          <p className="lead" style={{ fontSize: 17, maxWidth: 600 }}>
-            Sem taxa de implantação e sem fidelidade. Se não fizer sentido para a sua empresa, devolvemos o valor.
-          </p>
+          <span className="kicker">Planos e preços</span>
+          <h2 className="h2">Escolha o plano ideal para a sua empresa.</h2>
+          <p className="lead" style={{ fontSize: 17, maxWidth: 560 }}>Preços mensais, à vista, sem precisar preencher formulário para saber quanto custa.</p>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(340px, 100%), 1fr))', gap: 16, maxWidth: 900, width: '100%', margin: '0 auto' }}>
-          <div className="plan" style={{ borderColor: '#18181B', boxShadow: '0 0 0 1px #18181B, 0 24px 48px -20px rgb(24 24 27 / .25)' }}>
-            <div>
-              <h3 style={{ fontSize: 18, fontWeight: 600 }}>Equipe</h3>
-              <p className="small muted" style={{ marginTop: 4 }}>Para equipes de até 30 pessoas</p>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(290px, 100%), 1fr))', gap: 16, maxWidth: 1040, width: '100%', margin: '0 auto', alignItems: 'stretch' }}>
+          {plans.map((p) => (
+            <div
+              key={p.id}
+              className="plan"
+              style={p.highlight ? { borderColor: '#18181B', boxShadow: '0 0 0 1px #18181B, 0 24px 48px -20px rgb(24 24 27 / .25)' } : undefined}
+            >
+              <div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                  <h3 style={{ fontSize: 18, fontWeight: 600 }}>{p.name}</h3>
+                  {p.highlight && <span className="chip accent">Recomendado</span>}
+                </div>
+                <p className="small muted pretty" style={{ marginTop: 6, lineHeight: 1.55 }}>{p.audience}</p>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'baseline', gap: 8 }}>
+                <span style={{ fontSize: p.period ? 44 : 34, fontWeight: 600, letterSpacing: '-0.035em', lineHeight: 1 }}>{p.price}</span>
+                {p.period && <span className="muted">{p.period}</span>}
+              </div>
+              <ul className="ticks small">
+                {p.items.map((t) => <li key={t}><Check size={15} />{t}</li>)}
+              </ul>
+              <a
+                className={`btn btn-lg btn-block${p.highlight ? ' btn-primary' : ''}`}
+                href="#contato"
+                style={{ marginTop: 'auto' }}
+                onClick={() => { onSelectPlan(p.id); track('plan_click', { plan: p.id }) }}
+              >
+                {p.cta}
+              </a>
             </div>
-            <div style={{ display: 'flex', alignItems: 'baseline', gap: 8 }}>
-              <span style={{ fontSize: 44, fontWeight: 600, letterSpacing: '-0.035em', lineHeight: 1 }}>R$ 497</span>
-              <span className="muted">por mês</span>
-            </div>
-            <Ticks items={['Mentor no Slack e no navegador', 'Google Drive, Notion, GitHub e Slack', 'Trilhas de onboarding ilimitadas', 'Configuração assistida, sem custo extra']} />
-            <a className="btn btn-primary btn-lg btn-block" href="#" style={{ marginTop: 'auto' }}>Assinar agora</a>
-            <p className="xs muted" style={{ textAlign: 'center' }}>Pix, cartão ou boleto · Cancele quando quiser</p>
-          </div>
-
-          <div className="plan">
-            <div>
-              <h3 style={{ fontSize: 18, fontWeight: 600 }}>Empresa</h3>
-              <p className="small muted" style={{ marginTop: 4 }}>Para quem precisa de mais controle</p>
-            </div>
-            <div><span style={{ fontSize: 36, fontWeight: 600, letterSpacing: '-0.03em' }}>Sob consulta</span></div>
-            <Ticks items={['Tudo do plano Equipe, para mais de 30 pessoas', 'SAML, SCIM e auditoria avançada', 'Banco de dados dedicado']} />
-            <a className="btn btn-lg btn-block" href="#demo" style={{ marginTop: 'auto' }}>Falar com a gente</a>
-          </div>
+          ))}
         </div>
-
-        <div className="well" style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '16px 24px', maxWidth: 900, width: '100%', margin: '0 auto', padding: '20px 24px', background: '#FFFFFF' }}>
-          <span style={{ flex: 'none', width: 40, height: 40, borderRadius: 12, background: '#EEF2FE', color: '#2742BF', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
-            <Shield />
-          </span>
-          <div style={{ flex: '1 1 320px' }}>
-            <div style={{ fontWeight: 600 }}>Garantia de reembolso</div>
-            <p className="small ink2 pretty" style={{ marginTop: 2, lineHeight: 1.6 }}>
-              Teste por 30 dias. Se o Mentor não fizer sentido para a sua empresa, devolvemos 100% do valor, sem burocracia.
-            </p>
-          </div>
-        </div>
+        <p className="xs muted" style={{ textAlign: 'center' }}>
+          Produto em fase de validação: funcionalidades e planos podem ser ajustados até o lançamento.
+        </p>
       </div>
     </section>
   )

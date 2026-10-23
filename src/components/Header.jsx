@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react'
 import { Mark } from './icons.jsx'
+import { track } from '../lib/analytics.js'
 
 const links = [
+  ['#funcionalidades', 'Funcionalidades'],
   ['#como', 'Como funciona'],
-  ['#areas', 'Para cada área'],
-  ['#seguranca', 'Segurança'],
   ['#precos', 'Preços'],
+  ['#faq', 'Perguntas'],
 ]
 
 export default function Header() {
@@ -36,8 +37,9 @@ export default function Header() {
           ))}
         </nav>
         <div className="actions">
-          <a className="btn btn-ghost lp-login" href="#">Entrar</a>
-          <a className="btn btn-primary" href="#demo">Agendar demonstração</a>
+          <a className="btn btn-primary" href="#contato" onClick={() => track('cta_click', { location: 'header' })}>
+            Quero conhecer
+          </a>
           <button
             type="button"
             className="btn icon-btn lp-burger"
@@ -58,7 +60,6 @@ export default function Header() {
           {links.map(([href, label]) => (
             <a key={href} href={href} onClick={() => setOpen(false)}>{label}</a>
           ))}
-          <a href="#" onClick={() => setOpen(false)}>Entrar</a>
         </nav>
       )}
     </header>

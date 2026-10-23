@@ -1,7 +1,5 @@
 import { Mark } from './icons.jsx'
 
-const links = ['Privacidade', 'Termos', 'Segurança', '[E-MAIL DE CONTATO]']
-
 export default function Footer() {
   return (
     <footer style={{ borderTop: '1px solid #F0F0F2' }}>
@@ -11,9 +9,7 @@ export default function Footer() {
           Mentor
           <span className="small muted" style={{ fontWeight: 400 }}>© 2026</span>
         </div>
-        <nav aria-label="Rodapé" className="small" style={{ display: 'flex', flexWrap: 'wrap', gap: 24 }}>
-          {links.map((l) => <a key={l} href="#" style={{ color: '#6E6E78' }}>{l}</a>)}
-        </nav>
+        <p className="small muted">Produto em fase de validação.</p>
       </div>
     </footer>
   )

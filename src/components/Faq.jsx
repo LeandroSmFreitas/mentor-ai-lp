@@ -1,14 +1,15 @@
 const faqs = [
-  ['E se a nossa documentação estiver incompleta?', 'É o caso da maioria das empresas. O Mentor começa com o que existe e, a cada pergunta sem resposta, pede para quem sabe responder uma vez. A documentação melhora com o uso.'],
-  ['O Mentor pode inventar respostas?', 'Ele só afirma o que encontra nas suas fontes e mostra de onde tirou. Quando não encontra, diz que não sabe e encaminha a dúvida.'],
-  ['Quem consegue ver o quê?', 'Cada pessoa só recebe respostas de documentos que já poderia abrir na ferramenta original. A gestão vê o progresso das trilhas, não o conteúdo das conversas.'],
-  ['Funciona com o Microsoft Teams?', 'Hoje funciona no Slack e no navegador. O Teams está no nosso planejamento.'],
-  ['Quanto tempo leva para começar?', 'Conectar as fontes leva minutos. Na contratação, montamos com você a primeira trilha no mesmo dia.'],
+  ['Como funciona a triagem de candidatos?', 'Você define os requisitos de cada vaga e os critérios da sua empresa. A plataforma organiza os candidatos com base nesses critérios para facilitar a comparação. Ela apoia a avaliação do RH, mas a decisão de contratar continua sendo de vocês.'],
+  ['É possível utilizar vídeos e materiais próprios nos treinamentos?', 'Sim. A ideia é que a empresa estruture aulas, vídeos, módulos e materiais com o seu próprio conteúdo: cultura, regras internas, ferramentas e rotinas de cada função.'],
+  ['Como o novo colaborador acessa a plataforma?', 'Depois da contratação, o RH libera o acesso individual. O colaborador entra com seu próprio login e senha, acompanha os conteúdos e vê o seu progresso.'],
+  ['Como funciona o assistente de inteligência artificial?', 'Ele responde às dúvidas dos colaboradores com base nos materiais internos cadastrados pela empresa. Quando não houver uma resposta confiável, a dúvida é encaminhada a um responsável.'],
+  ['Qual é a diferença entre os planos Start, Pro e Enterprise?', 'O Start é a opção de entrada, com os recursos essenciais. O Pro é mais completo e inclui recursos adicionais. O Enterprise é para necessidades específicas, com configuração conversada com a nossa equipe e preço sob consulta.'],
+  ['Como posso conhecer melhor a solução?', 'Preencha o formulário no fim da página. Nossa equipe entra em contato para entender a sua empresa e mostrar como a plataforma pode ajudar.'],
 ]
 
 export default function Faq() {
   return (
-    <section>
+    <section id="faq" style={{ background: '#FAFAFA', borderTop: '1px solid #F0F0F2', borderBottom: '1px solid #F0F0F2' }}>
       <div className="wrap" style={{ display: 'flex', flexWrap: 'wrap', gap: '40px 80px', paddingTop: 112, paddingBottom: 112 }}>
         <div style={{ flex: '1 1 300px', display: 'flex', flexDirection: 'column', gap: 14, maxWidth: 360 }}>
           <span className="kicker">Perguntas frequentes</span>

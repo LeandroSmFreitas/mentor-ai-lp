@@ -1,22 +1,21 @@
 const pains = [
-  ['Seniores interrompidos o dia todo', '“Com quem eu pego esse acesso?”, “onde fica tal documento?”. As mesmas perguntas, para as mesmas pessoas, a cada contratação.'],
-  ['Novatos travados fora do horário', 'Meia-noite, um erro no ambiente e ninguém para perguntar. O trabalho espera até alguém ter tempo no dia seguinte.'],
-  ['Gestão sem visibilidade', 'Ninguém sabe ao certo o que falta para a pessoa nova ficar produtiva, nem em qual passo o onboarding sempre emperra.'],
+  ['Contratações demoradas e pouco organizadas', 'A triagem manual e a ausência de critérios bem definidos podem dificultar a comparação entre candidatos e tornar o processo seletivo mais trabalhoso.'],
+  ['Treinamentos que dependem de outras pessoas', 'Gestores e funcionários precisam interromper suas atividades para explicar repetidamente as mesmas tarefas, regras e procedimentos.'],
+  ['Novos colaboradores sem orientação estruturada', 'Quando não existe um processo de integração bem definido, o funcionário pode ter dificuldade para compreender as rotinas e executar suas atividades com segurança.'],
+  ['Dúvidas recorrentes no dia a dia', 'Informações espalhadas em documentos e conversas dificultam o acesso às respostas e aumentam a dependência dos gestores.'],
 ]
 
 export default function Problem() {
   return (
     <section>
-      <div className="wrap" style={{ display: 'flex', flexDirection: 'column', gap: 56, paddingTop: 120, paddingBottom: 120 }}>
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '24px 80px', alignItems: 'flex-end' }}>
-          <h2 className="display" style={{ flex: '1 1 520px', fontSize: 'clamp(36px, 4.4vw, 60px)' }}>
-            Toda contratação tem um custo que não aparece na planilha.
+      <div className="wrap" style={{ display: 'flex', flexDirection: 'column', gap: 56, paddingTop: 112, paddingBottom: 112 }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 14, maxWidth: 720 }}>
+          <span className="kicker">O problema</span>
+          <h2 className="display" style={{ fontSize: 'clamp(34px, 4.2vw, 56px)' }}>
+            Tempo demais gasto com o que poderia estar organizado.
           </h2>
-          <p className="lead" style={{ flex: '1 1 360px', maxWidth: 460 }}>
-            Quem chega passa semanas descobrindo como as coisas funcionam. Quem já está para o próprio trabalho para explicar. E o conhecimento continua na cabeça de poucas pessoas.
-          </p>
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))', gap: 40 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(240px, 100%), 1fr))', gap: 40 }}>
           {pains.map(([title, text]) => (
             <div key={title} className="pain">
               <h3 style={{ fontSize: 18, fontWeight: 600 }}>{title}</h3>
@@ -24,6 +23,9 @@ export default function Problem() {
             </div>
           ))}
         </div>
+        <p className="lead" style={{ maxWidth: 760, color: '#18181B', fontWeight: 500 }}>
+          Sua equipe precisa produzir, não perder tempo repetindo explicações e reorganizando processos que poderiam estar estruturados.
+        </p>
       </div>
     </section>
   )
