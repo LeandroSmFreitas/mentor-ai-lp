@@ -1,6 +1,6 @@
 import { getAttribution } from './analytics.js'
 
-// Endpoint que recebe os leads (ex.: Formspree, Supabase Edge Function, API própria).
+// Endpoint que recebe os leads (Formspree: https://formspree.io/f/SEU_ID).
 // Defina VITE_LEADS_ENDPOINT em .env. Sem ele, o envio falha de propósito:
 // a confirmação só aparece quando o servidor realmente respondeu com sucesso.
 const ENDPOINT = import.meta.env.VITE_LEADS_ENDPOINT
@@ -12,6 +12,7 @@ export async function submitLead(data) {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
     body: JSON.stringify({
+      _subject: `Novo lead — ${data.empresa}${data.plano ? ` (plano ${data.plano})` : ''}`,
       ...data,
       ...getAttribution(),
       page: window.location.pathname,
