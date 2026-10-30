@@ -29,7 +29,7 @@ export default function Header() {
       <div className="wrap lp-bar" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 24, height: 68 }}>
         <a href="#" style={{ display: 'flex', alignItems: 'center', gap: 10, fontWeight: 600, fontSize: 16, letterSpacing: '-0.01em', color: '#18181B' }}>
           <Mark icon={14} strokeWidth={2.6} />
-          Mentor
+          Antari
         </a>
         <nav className="lp-links" aria-label="Seções">
           {links.map(([href, label]) => (

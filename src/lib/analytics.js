@@ -2,7 +2,7 @@
 // Configure os IDs em .env: VITE_GA_ID (GA4) e VITE_META_PIXEL_ID (Meta Pixel).
 const GA_ID = import.meta.env.VITE_GA_ID
 const PIXEL_ID = import.meta.env.VITE_META_PIXEL_ID
-const CONSENT_KEY = 'mentor-consent'
+const CONSENT_KEY = 'antari-consent'
 
 let loaded = false
 
@@ -69,7 +69,7 @@ export function captureAttribution() {
     for (const k of ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'fbclid', 'gclid']) {
       if (q.get(k)) utm[k] = q.get(k)
     }
-    if (Object.keys(utm).length) sessionStorage.setItem('mentor-utm', JSON.stringify(utm))
+    if (Object.keys(utm).length) sessionStorage.setItem('antari-utm', JSON.stringify(utm))
   } catch {
     /* ignora */
   }
@@ -78,7 +78,7 @@ export function captureAttribution() {
 export function getAttribution() {
   try {
     return {
-      ...JSON.parse(sessionStorage.getItem('mentor-utm') || '{}'),
+      ...JSON.parse(sessionStorage.getItem('antari-utm') || '{}'),
       referrer: document.referrer || undefined,
     }
   } catch {

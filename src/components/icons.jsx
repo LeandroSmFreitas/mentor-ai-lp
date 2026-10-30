@@ -1,4 +1,4 @@
-const MARK_PATH = 'M5 18V7.5a.5.5 0 0 1 .85-.35L12 13.3l6.15-6.15a.5.5 0 0 1 .85.35V18'
+const MARK_PATH = 'M5.5 19 12 5l6.5 14M8.6 14.2h6.8'
 
 export function Mark({ box, icon = 12, strokeWidth = 2.8, style }) {
   const boxStyle = box ? { width: box, height: box, ...style } : style
